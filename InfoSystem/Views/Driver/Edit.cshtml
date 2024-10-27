@@ -1,0 +1,26 @@
+﻿@model InfoSystem.Models.Driver
+
+<h1 class="text-center mb-4">Edit Driver</h1>
+
+<div class="container">
+    <form asp-action="Edit" class="row g-3">
+        <input type="hidden" asp-for="DriverID" />
+
+        <div class="col-12">
+            <label asp-for="DriverName" class="form-label fw-bold"></label>
+            <input asp-for="DriverName" class="form-control" placeholder="Enter Driver Name" />
+            <span asp-validation-for="DriverName" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="CarReg" class="form-label fw-bold"></label>
+            <input asp-for="CarReg" class="form-control" placeholder="Enter Car Registration" />
+            <span asp-validation-for="CarReg" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 d-flex justify-content-start mt-4">
+            <button type="submit" class="btn btn-primary me-2">Update</button>
+            <a asp-controller="Driver" asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
+</div>

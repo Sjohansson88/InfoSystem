@@ -1,0 +1,38 @@
+﻿@model InfoSystem.Models.Driver
+
+<h1 class="text-center mb-4">Create Driver</h1>
+
+<div class="container">
+    <form asp-action="Create" class="row g-3">
+        <div class="col-12">
+            <label asp-for="DriverName" class="form-label fw-bold"></label>
+            <input asp-for="DriverName" class="form-control" placeholder="Enter Driver Name" style="width: 300px;" />
+            <span asp-validation-for="DriverName" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="CarReg" class="form-label fw-bold"></label>
+            <input asp-for="CarReg" class="form-control" placeholder="Enter Car Registration" style="width: 300px;" />
+            <span asp-validation-for="CarReg" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="NoteDate" class="form-label fw-bold"></label>
+            <input asp-for="NoteDate" type="datetime-local" class="form-control" style="width: 300px;" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" readonly />
+            <span asp-validation-for="NoteDate" class="text-danger"></span>
+        </div>
+
+   
+
+        <div class="col-12">
+            <label asp-for="ResponsibleEmployee" class="form-label fw-bold"></label>
+            <input asp-for="ResponsibleEmployee" class="form-control" placeholder="Enter Responsible Employee" style="width: 300px;" />
+            <span asp-validation-for="ResponsibleEmployee" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 d-flex justify-content-start mt-4">
+            <input type="submit" value="Create" class="btn btn-primary me-2" />
+            <a asp-controller="Driver" asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
+</div>

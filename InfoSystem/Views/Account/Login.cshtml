@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Logga in";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center mb-4">Logga in</h2>
+        <form asp-action="Login" method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">E-post</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ange din e-post" required />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Lösenord</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Ange ditt lösenord" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Logga in</button>
+        </form>
+    </div>
+</div>

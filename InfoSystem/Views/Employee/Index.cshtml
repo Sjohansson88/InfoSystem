@@ -1,0 +1,35 @@
+﻿@model IEnumerable<InfoSystem.Models.Employee>
+
+<br />
+<h1>Employees</h1>
+
+<form asp-action="Index" method="get">
+    <input type="text" name="searchString" placeholder="Search by name or email" value="@ViewData["CurrentFilter"]" />
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Email</td>
+                <td>
+                    <a asp-controller="Employee" asp-action="Details" asp-route-id="@employee.EmployeeId">Details</a> |
+                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> |
+                    <a asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a asp-controller="Employee" asp-action="Create"><i class="fa-solid fa-user-plus"></i> Add New Employee</a>

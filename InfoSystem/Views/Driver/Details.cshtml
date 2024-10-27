@@ -1,0 +1,99 @@
+﻿@model InfoSystem.Models.Driver
+
+<h1 class="mb-4">Driver Details</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+          
+            <div class="mb-3">
+                <div class="d-flex justify-content-between">
+                   
+                    <span class="fw-bold">Name:</span>
+                    <span>@Model.DriverName</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Car Registration:</span>
+                    <span>@Model.CarReg</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Registered in system:</span>
+                    <span>@Model.NoteDate.ToShortDateString()</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Responsible Employee:</span>
+                    <span>@Model.ResponsibleEmployee</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Total Belopp In:</span>
+                    <span>@Model.TotalBeloppIn</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <span class="fw-bold">Total Belopp Ut:</span>
+                    <span>@Model.TotalBeloppUt</span>
+                </div>
+            </div>
+
+            <hr class="my-4" /> 
+
+            <h3 class="mt-4">Filter Events</h3>
+            <form method="get" asp-action="Details" asp-route-id="@Model.DriverID" class="row g-3 mb-4">
+                <div class="col-6">
+                   
+                    <label class="form-label">Start Date:</label>
+                    <input type="date" name="startDate" class="form-control" />
+                </div>
+                <div class="col-6">
+                   
+                    <label class="form-label">End Date:</label>
+                    <input type="date" name="endDate" class="form-control" />
+                </div>
+                <div class="col-12 d-flex align-items-end">
+                    <input type="submit" value="Filter" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <h3>Events</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Belopp In</th>
+                        <th>Belopp Ut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Events != null && Model.Events.Any())
+                    {
+                        foreach (var eventt in Model.Events)
+                        {
+                            <tr>
+                                <td>@eventt.NoteDate.ToShortDateString()</td>
+                                <td>@eventt.NoteDescription</td>
+                                <td>@eventt.BeloppIn</td>
+                                <td>@eventt.BeloppUt</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center">No events found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-controller="Event" asp-action="Create" asp-route-driverId="@Model.DriverID" class="btn btn-primary">Add New Event</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model InfoSystem.Models.Event
+
+<h1 class="text-center my-4">Create Event for Driver</h1>
+
+<div class="container" width="">
+    <form asp-action="Create" method="post" class="row g-3">
+        <div class="col-12">
+            <label asp-for="NoteDate" class="form-label fw-bold"></label>
+            <input asp-for="NoteDate" type="datetime-local" class="form-control" style="width: 300px;" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" readonly />
+            <span asp-validation-for="NoteDate" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="NoteDescription" class="form-label fw-bold"></label>
+            <textarea asp-for="NoteDescription" class="form-control" placeholder="Enter Event Description" style="width: 300px;"></textarea>
+            <span asp-validation-for="NoteDescription" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="BeloppIn" class="form-label fw-bold"></label>
+            <input asp-for="BeloppIn" type="number" class="form-control" placeholder="Enter Belopp In" style="width: 300px;" />
+            <span asp-validation-for="BeloppIn" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="BeloppUt" class="form-label fw-bold"></label>
+            <input asp-for="BeloppUt" type="number" class="form-control" placeholder="Enter Belopp Ut" style="width: 300px;" />
+            <span asp-validation-for="BeloppUt" class="text-danger"></span>
+        </div>
+
+        <input type="hidden" asp-for="DriverID" />
+
+        <div class="col-12 d-flex justify-content-start mt-4">
+            <button type="submit" class="btn btn-primary me-2">Save</button>
+            <a asp-controller="Driver" asp-action="Details" asp-route-id="@Model.DriverID" class="btn btn-secondary">Back to Driver Details</a>
+        </div>
+    </form>
+</div>

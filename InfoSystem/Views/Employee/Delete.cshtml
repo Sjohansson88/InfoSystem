@@ -1,0 +1,20 @@
+﻿@model InfoSystem.Models.Employee
+
+<h1>Delete Employee</h1>
+
+<div>
+    <h4>Are you sure you want to delete this employee?</h4>
+    <div>
+        <h5>Name: @Model.Name</h5>
+        <h5>Email: @Model.Email</h5>
+        <h5>Role: @Model.Role</h5>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+
+    <input type="hidden" asp-for="EmployeeId" />
+    <input type="submit" value="Delete" />
+</form>
+
+<a asp-controller="Employee" asp-action="Index">Back to List</a>
