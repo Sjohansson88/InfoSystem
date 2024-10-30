@@ -13,9 +13,12 @@ namespace InfoSystem
 
 
 			builder.Services.AddDbContext<AppDbContext>(options =>
-		   options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
+			{
+				options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+			});
 
-			builder.Services.AddScoped<IDriverRepository, DriverRepository>();
+
+            builder.Services.AddScoped<IDriverRepository, DriverRepository>();
 			builder.Services.AddScoped<IEventRepository, EventRepository>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
