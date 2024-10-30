@@ -36,9 +36,9 @@ namespace InfoSystem.Data
 			   NoteDate = DateTime.Now.AddMonths(-2),
 			   NoteDescription = "Added to System",
 			   ResponsibleEmployee = "Alice Johnson",
-			   BeloppUt = 100,
+			   BeloppUt = 150,
 			   BeloppIn = 0,
-			   TotalBeloppUt = 100,
+			   TotalBeloppUt = 150,
 			   TotalBeloppIn = 0
 		   },
 		   new Driver
@@ -49,7 +49,7 @@ namespace InfoSystem.Data
 			   NoteDate = DateTime.Now.AddMonths(-1),
 			   NoteDescription = "Added to System",
 			   ResponsibleEmployee = "Bob Smith",
-			   BeloppUt = 150,
+			   BeloppUt = 100,
 			   BeloppIn = 0,
 			   TotalBeloppUt = 150,
 			   TotalBeloppIn = 0

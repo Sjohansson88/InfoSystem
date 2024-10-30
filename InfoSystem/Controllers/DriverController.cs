@@ -33,17 +33,9 @@ namespace InfoSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                driver.ActionType = "Created";
                 await _driverRepo.AddAsync(driver);
-
-               
-                var createEvent = new Event
-                {
-                    DriverID = driver.DriverID,
-                    NoteDescription = "Driver created",
-                    NoteDate = DateTime.Now,
-                    ActionType = "Create"  
-                };
-                await _eventRepo.AddAsync(createEvent);
+                await _driverRepo.SaveAsync(); 
 
                 return RedirectToAction(nameof(Index));
             }
@@ -64,23 +56,20 @@ namespace InfoSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Driver updatedDriver)
         {
-            if (id != updatedDriver.DriverID) return NotFound();
+            if (id != updatedDriver.DriverID)
+            {
+                return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
+                updatedDriver.ActionType = "Edited";
                 await _driverRepo.UpdateAsync(updatedDriver);
-
-                var editEvent = new Event
-                {
-                    DriverID = updatedDriver.DriverID,
-                    NoteDescription = "Driver updated",
-                    NoteDate = DateTime.Now,
-                    ActionType = "Edit"  
-                };
-                await _eventRepo.AddAsync(editEvent);
+                await _driverRepo.SaveAsync();
 
                 return RedirectToAction(nameof(Index));
             }
+
             return View(updatedDriver);
         }
 

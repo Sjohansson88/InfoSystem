@@ -4,6 +4,7 @@ using InfoSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InfoSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241030173545_Azure2")]
+    partial class Azure2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +32,6 @@ namespace InfoSystem.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DriverID"));
-
-                    b.Property<string>("ActionType")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("BeloppIn")
                         .HasColumnType("decimal(18,2)");
@@ -74,7 +74,7 @@ namespace InfoSystem.Migrations
                             BeloppUt = 150m,
                             CarReg = "ABC123",
                             DriverName = "Emma Nilsson",
-                            NoteDate = new DateTime(2024, 8, 30, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3331),
+                            NoteDate = new DateTime(2024, 8, 30, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3321),
                             NoteDescription = "Added to System",
                             ResponsibleEmployee = "Alice Johnson",
                             TotalBeloppIn = 0m,
@@ -87,7 +87,7 @@ namespace InfoSystem.Migrations
                             BeloppUt = 100m,
                             CarReg = "XYZ987",
                             DriverName = "Per Karlsson",
-                            NoteDate = new DateTime(2024, 9, 30, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3397),
+                            NoteDate = new DateTime(2024, 9, 30, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3399),
                             NoteDescription = "Added to System",
                             ResponsibleEmployee = "Bob Smith",
                             TotalBeloppIn = 0m,
@@ -100,7 +100,7 @@ namespace InfoSystem.Migrations
                             BeloppUt = 0m,
                             CarReg = "ATZ127",
                             DriverName = "Olle Persson",
-                            NoteDate = new DateTime(2024, 9, 30, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3401),
+                            NoteDate = new DateTime(2024, 9, 30, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3406),
                             NoteDescription = "Added to System",
                             ResponsibleEmployee = "Bob Smith",
                             TotalBeloppIn = 150m,
@@ -198,7 +198,7 @@ namespace InfoSystem.Migrations
                             BeloppIn = 0m,
                             BeloppUt = 100m,
                             DriverID = 1,
-                            NoteDate = new DateTime(2024, 10, 20, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3426),
+                            NoteDate = new DateTime(2024, 10, 20, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3436),
                             NoteDescription = "Speeding violation"
                         },
                         new
@@ -207,7 +207,7 @@ namespace InfoSystem.Migrations
                             BeloppIn = 0m,
                             BeloppUt = 50m,
                             DriverID = 1,
-                            NoteDate = new DateTime(2024, 10, 10, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3435),
+                            NoteDate = new DateTime(2024, 10, 10, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3447),
                             NoteDescription = "Routine maintenance"
                         },
                         new
@@ -216,7 +216,7 @@ namespace InfoSystem.Migrations
                             BeloppIn = 0m,
                             BeloppUt = 100m,
                             DriverID = 2,
-                            NoteDate = new DateTime(2024, 10, 25, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3438),
+                            NoteDate = new DateTime(2024, 10, 25, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3450),
                             NoteDescription = "Tire replacement"
                         },
                         new
@@ -225,7 +225,7 @@ namespace InfoSystem.Migrations
                             BeloppIn = 150m,
                             BeloppUt = 0m,
                             DriverID = 3,
-                            NoteDate = new DateTime(2024, 10, 27, 18, 55, 10, 82, DateTimeKind.Local).AddTicks(3440),
+                            NoteDate = new DateTime(2024, 10, 27, 18, 35, 44, 580, DateTimeKind.Local).AddTicks(3454),
                             NoteDescription = "Package deliverd"
                         });
                 });
