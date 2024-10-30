@@ -38,6 +38,9 @@ namespace InfoSystem.Service
 		   .ToListAsync();
 		}
 
-
-	}
+        public async Task<int> GetCountAsync()
+        {
+            return await _context.Drivers.CountAsync();
+        }
+    }
 }

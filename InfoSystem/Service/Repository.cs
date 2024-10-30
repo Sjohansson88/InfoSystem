@@ -40,7 +40,12 @@ namespace InfoSystem.Service
 			return await _dbSet.FindAsync(id);
 		}
 
-		public async Task SaveAsync()
+        public async Task<int> GetCountAsync()
+        {
+            return await _context.Set<T>().CountAsync();
+        }
+
+        public async Task SaveAsync()
 		{
 			await _context.SaveChangesAsync();
 		}

@@ -49,5 +49,11 @@ namespace InfoSystem.Service
             _dbContext.Employees.Update(entity);
             await _dbContext.SaveChangesAsync();
         }
+
+
+        public async Task<int> GetCountAsync()
+        {
+            return await _dbContext.Employees.CountAsync();
+        }
     }
 }

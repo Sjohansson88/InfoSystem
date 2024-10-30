@@ -47,5 +47,11 @@ namespace InfoSystem.Service
                 .Where(e => e.NoteDate >= recentTime)
                 .ToListAsync();
         }
+
+
+        public async Task<int> GetCountAsync()
+        {
+            return await _context.Events.CountAsync();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using InfoSystem.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InfoSystem.Controllers
@@ -7,12 +8,14 @@ namespace InfoSystem.Controllers
     {
         private readonly IEventRepository _eventRepo;
         private readonly IDriverRepository _driverRepo;
+        private readonly IEmployeeRepository _employeeRepo;
 
 
-        public NotificationsController(IEventRepository eventRepo, IDriverRepository driverRepo)
+        public NotificationsController(IEventRepository eventRepo, IDriverRepository driverRepo, IEmployeeRepository employeeRepo)
         {
             _eventRepo = eventRepo;
             _driverRepo = driverRepo;
+            _employeeRepo = employeeRepo;
         }
         public async Task<IActionResult> Index()
         {
@@ -36,6 +39,17 @@ namespace InfoSystem.Controllers
 
             var recentEvents = await _eventRepo.GetRecentEventsAsync(interval);
             return recentEvents.Any();
+        }
+
+
+        
+        public async Task<IActionResult> Count()
+        {
+            ViewBag.EventCount = await _eventRepo.GetCountAsync();
+            ViewBag.DriverCount = await _driverRepo.GetCountAsync();
+            ViewBag.EmployeeCount = await _employeeRepo.GetCountAsync();
+
+            return View();
         }
 
 

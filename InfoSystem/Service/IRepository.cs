@@ -10,5 +10,6 @@ namespace InfoSystem.Service
 		Task UpdateAsync(T entity);
 		Task DeleteAsync(int id);
 		Task SaveAsync();
-	}
+        Task<int> GetCountAsync();
+    }
 }
