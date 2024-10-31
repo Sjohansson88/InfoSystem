@@ -18,6 +18,12 @@
             <span asp-validation-for="CarReg" class="text-danger"></span>
         </div>
 
+        <div class="col-12">
+            <label asp-for="ResponsibleEmployee" class="form-label fw-bold"></label>
+            <input asp-for="ResponsibleEmployee" class="form-control" placeholder="Enter Responsible Employee" />
+            <span asp-validation-for="ResponsibleEmployee" class="text-danger"></span>
+        </div>
+
         <div class="col-12 d-flex justify-content-start mt-4">
             <button type="submit" class="btn btn-primary me-2">Update</button>
             <a asp-controller="Driver" asp-action="Index" class="btn btn-secondary">Back to List</a>
